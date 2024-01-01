@@ -1,9 +1,20 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaAngleRight, FaAngleLeft  } from "react-icons/fa6";
 const SpecialDishes = () => {
+    const [recipes,setRecipes] = useState([])
+    const slider = React.useRef(null);
+    useEffect(() => {
+        fetch("/menu.json")
+            .then((res) => res.json())
+            .then((data) => {
+                const specials = data.filter((item) => item.category === "popular");
+                // console.log(specials)
+                setRecipes(specials);
+            });
+    }, []);
 
     const settings = {
         dots: true,
@@ -46,32 +57,11 @@ const SpecialDishes = () => {
               <h2 className='title'>Popular Catagories</h2>
           </div>
 
-          <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
-        </Slider>
+          <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
+              {recipes.map((item, i) => (
+                  <Cards item={item} key={i} />
+              ))}
+          </Slider>
 
 
           <div className="md:absolute right-3 top-8 mb-10 md:mr-24">
