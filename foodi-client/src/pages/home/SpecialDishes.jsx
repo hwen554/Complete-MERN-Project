@@ -1,8 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import Cards from '../../components/Cards';
 import Slider from "react-slick";
 import { FaAngleRight, FaAngleLeft  } from "react-icons/fa6";
+
 const SpecialDishes = () => {
     const [recipes,setRecipes] = useState([])
     const slider = React.useRef(null);
@@ -20,8 +22,8 @@ const SpecialDishes = () => {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         initialSlide: 0,
         responsive: [
             {
