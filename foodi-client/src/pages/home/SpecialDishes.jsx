@@ -54,9 +54,9 @@ const SpecialDishes = () => {
     };
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
-          <div className='text-left'>
-              <p className='subtitle'>Customer Favorites</p>
-              <h2 className='title'>Popular Catagories</h2>
+          <div className='text-center'>
+              <p className='text-red uppercase tracking-wide font-semibold text-lg'>Customer Favorites</p>
+              <h2 className='text-4xl md:text-5xl md:leading-snug font-bold my-2'>Popular Catagories</h2>
           </div>
 
           <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
