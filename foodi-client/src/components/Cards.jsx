@@ -12,7 +12,7 @@ const Cards = ({item}) => {
 
         <div className="card shadow-xl relative mr-5 md:my-5">
             <div
-                className={`rating gap-1 absolute right-2 top-2 p-4 heart bg-green ${isHeartFilled ? "text-rose-500" : "text-white"
+                className={`rating gap-1 absolute right-2 top-2 p-4  bg-green ${isHeartFilled ? "text-rose-500" : "text-white"
                     }`}
                 onClick={handleHeartClick}
             >

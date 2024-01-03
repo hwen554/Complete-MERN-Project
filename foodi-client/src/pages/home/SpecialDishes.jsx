@@ -5,6 +5,32 @@ import Cards from '../../components/Cards';
 import Slider from "react-slick";
 import { FaAngleRight, FaAngleLeft  } from "react-icons/fa6";
 
+const SampleNextArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red" }}
+        onClick={onClick}
+      >
+        NEXT
+      </div>
+    );
+  };
+
+  const SamplePrevArrow = (props) => {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "green" }}
+        onClick={onClick}
+      >
+        BACK
+      </div>
+    );
+  };
+
 const SpecialDishes = () => {
     const [recipes,setRecipes] = useState([])
     const slider = React.useRef(null);
@@ -48,15 +74,22 @@ const SpecialDishes = () => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
-                }
-            }
-        ]
+                },
+            },
+        ],
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />,
     };
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 my-20 relative">
-          <div className='text-center'>
-              <p className='text-red uppercase tracking-wide font-semibold text-lg'>Customer Favorites</p>
-              <h2 className='text-4xl md:text-5xl md:leading-snug font-bold my-2'>Popular Catagories</h2>
+          <div className='text-left'>
+              <p className='text-red uppercase tracking-wide font-semibold text-lg'>Special Dishes</p>
+              <h2 className='text-4xl md:text-5xl md:leading-snug font-bold my-2'>Standout Dishes From Our Menu</h2>
+          </div>
+
+          <div >
+              <button onClick={()=>slider?.current?.slickPrev()} className='btn p-2 rounded-full ml-5'>Prev</button>
+              <button onClick={()=>slider?.current?.slickNext()} className='btn p-2 rounded-full ml-5'>Next</button>
           </div>
 
           <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
@@ -66,13 +99,13 @@ const SpecialDishes = () => {
           </Slider>
 
 
-          <div className="md:absolute right-3 top-8 mb-10 md:mr-24">
+          {/* <div className="md:absolute right-3 top-8 mb-10 md:mr-24">
               <button onClick={() => slider?.current?.slickPrev()}
                   className=" btn p-2 rounded-full ml-5"
               >
                   <FaAngleLeft className=" h-8 w-8 p-1" />
               </button>
-          </div>
+          </div> */}
     </div>
   )
 }
