@@ -87,9 +87,9 @@ const SpecialDishes = () => {
               <h2 className='text-4xl md:text-5xl md:leading-snug font-bold my-2'>Standout Dishes From Our Menu</h2>
           </div>
 
-          <div >
-              <button onClick={()=>slider?.current?.slickPrev()} className='btn p-2 rounded-full ml-5'>Prev</button>
-              <button onClick={()=>slider?.current?.slickNext()} className='btn p-2 rounded-full ml-5'>Next</button>
+          <div className='md:absolute right-3 top-8 mb-10 md:mr-24'>
+              <button onClick={()=>slider?.current?.slickPrev()} className='btn p-2 rounded-full ml-5'><FaAngleLeft className='w-8 h-8 p-1'/></button>
+              <button onClick={()=>slider?.current?.slickNext()} className='btn p-2 rounded-full ml-5'><FaAngleRight className='w-8 h-8 p-1'/></button>
           </div>
 
           <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
