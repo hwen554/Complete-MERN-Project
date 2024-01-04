@@ -89,7 +89,7 @@ const SpecialDishes = () => {
 
           <div >
               <button onClick={()=>slider?.current?.slickPrev()} className='btn p-2 rounded-full ml-5'>Prev</button>
-              <button onClick={()=>slider?.current?.slickNext()} className='btn p-2 rounded-full ml-5'>Next</button>
+              <button onClick={()=>slider?.current?.slickNext()} className='btn p-2 rounded-full ml-5'>Next </button>
           </div>
 
           <Slider ref={slider} {...settings} className="overflow-hidden mt-10 space-x-5">
