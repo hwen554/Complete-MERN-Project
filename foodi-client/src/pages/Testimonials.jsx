@@ -13,7 +13,7 @@ const Testimonials = () => {
         <div className='md:w-1/2'>
           <div className='text-left md:w-4/5'>
             <p className='text-red uppercase tracking-wide font-semibold text-lg'>Testimonials</p>
-
+            <h2 className="text-4xl md:text-5xl md:leading-snug font-bold my-2">What Our Customers Say About Us</h2>
           </div>
         </div>
       </div>
