@@ -20,3 +20,7 @@ header, nav{
 heartStar{
     border-radius:0px 37.5px 0px 42.5px;
 }
+
+/* .section-container{
+    @apply max-w-screen-2xl container mx-auto xl:px-24 px-4
+} */
