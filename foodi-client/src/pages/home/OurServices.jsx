@@ -9,12 +9,30 @@ const serviceLists = [
 
 const OurServices = () => {
   return (
-    <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 my-16'>
-        <div>
-            
-        </div>
+      <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 my-16'>
+          <div className='flex flex-col md:flex-row items-center justify-between gap-12'>
+              <div className='md:w-1/2'>
+                  <div className='text-left md:w-4/5'>
+                      <p className='text-red uppercase tracking-wide font-semibold text-lg'>Our Story & Services</p>
+                      <h2 className='text-4xl md:text-5xl md:leading-snug font-bold my-2'>Our Culinary Journey And Services</h2>
+                      <p className='my-5 text-secondary leading-[30px]'>
+                          Rooted in passion, we curate unforgettable dining experiences and
+                          offer exceptional services, blending culinary artistry with warm
+                          hospitality.
+                      </p>
 
-    </div>
+                      <button className='bg-green font-semibold btn text-white px-8 py-3 rounded-full'>
+                        Explore
+                      </button>
+                  </div>
+              </div>
+              
+              <div>
+
+              </div>
+          </div>
+
+      </div>
   )
 }
 
