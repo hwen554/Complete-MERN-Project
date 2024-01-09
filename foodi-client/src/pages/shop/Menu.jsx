@@ -4,7 +4,17 @@ import { FaFilter } from "react-icons/fa";
 
 
 const Menu = () => {
-    const [menu, setMenu] = useState([])
+    const [menu, setMenu] = useState([]);
+    const [filteredItems, setFilteredItems] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("all");
+    const [sortOption, setSortOption] = useState("default");
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(8); // Number of items to display per page
+
+    useEffect(()=>{
+        //fetch data from the backend 
+        
+    },[])
     return (
         <div>
             {/* menu banner */}
