@@ -105,24 +105,24 @@ const Menu = () => {
             <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
                 <div className='flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8'>
                     {/* all category buttons */}
-                    <div className='flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap'>
-                        <button>
-
+                    <div className='flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap font-semibold'>
+                        <button onClick={showAll}>
+                            All
                         </button>
-                        <button>
-                            
+                        <button onClick={()=>filterItems("salad")}>
+                            Salad
                         </button>
-                        <button>
-                            
+                        <button onClick={()=>filterItems("pizza")}>
+                            Pizza
                         </button>
-                        <button>
-                            
+                        <button onClick={()=>filterItems("soup")}>
+                            Soups
                         </button>
-                        <button>
-                            
+                        <button onClick={()=>filterItems("dessert")}>
+                            Desserts
                         </button>
-                        <button>
-                            
+                        <button onClick={()=>filterItems("drinks")}>
+                            Drinks
                         </button>
                     </div>
 
