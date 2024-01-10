@@ -16,7 +16,7 @@ const Cards = ({item}) => {
                     }`}
                 onClick={handleHeartClick}
             >
-                <FaHeart className="w-4 h-4 cursor-pointer" />
+                <FaHeart className="w-4 h-4 cursor-pointer rounded-sm" />
             </div>
             <Link to={`/menu/${item._id}`}>
                 <figure>
