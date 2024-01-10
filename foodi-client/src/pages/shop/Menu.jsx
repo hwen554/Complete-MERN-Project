@@ -106,19 +106,19 @@ const Menu = () => {
                 <div className='flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8'>
                     {/* all category buttons */}
                     <div className='flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap font-semibold'>
-                        <button onClick={showAll}>
+                        <button onClick={showAll} className={selectedCategory === "all" ? "active" : ""}>
                             All
                         </button>
-                        <button onClick={()=>filterItems("salad")}>
+                        <button onClick={()=>filterItems("salad")} className={selectedCategory === "salad" ? "active" : ""}>
                             Salad
                         </button>
-                        <button onClick={()=>filterItems("pizza")}>
+                        <button onClick={()=>filterItems("pizza")} className={selectedCategory === "pizza" ? "active" : ""}>
                             Pizza
                         </button>
-                        <button onClick={()=>filterItems("soup")}>
+                        <button onClick={()=>filterItems("soup")}  className={selectedCategory === "soup" ? "active" : ""}>
                             Soups
                         </button>
-                        <button onClick={()=>filterItems("dessert")}>
+                        <button onClick={()=>filterItems("dessert")} className={selectedCategory === "dessert" ? "active" : ""}>
                             Desserts
                         </button>
                         <button onClick={()=>filterItems("drinks")}>
