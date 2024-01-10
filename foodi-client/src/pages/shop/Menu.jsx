@@ -13,8 +13,72 @@ const Menu = () => {
 
     useEffect(()=>{
         //fetch data from the backend 
-        
+        const fetchData = async()=>{
+            try{
+                const response = await fetch("/menu.json");
+                const data = await response.json();
+                // console.log(data)
+                setMenu(data);
+                setFilteredItems(data);
+            }catch(error){
+                console.log("Error fetching data",error)
+            }
+        };
+        //call the func
+        fetchData();
     },[])
+
+    // filter data 
+    const filterItems = (category) => {
+        const filtered =
+            category === "all" ? menu
+                : menu.filter((item) => item.category === category);
+        setFilteredItems(filtered);
+        setSelectedCategory(category);
+    }
+
+    //show all data
+    const showAll = () => {
+        setFilteredItems(menu);
+        setSelectedCategory("all")
+    }
+
+    //sorting based on A-Z, l - h price
+    const handleSortChange=(option)=>{
+        setSortOption(option);
+        let sortedItems = [...filterItems];
+        // logic
+
+        switch(option){
+            case "A-Z":
+                sortedItems.sort((a,b) => a.name.localeCompare(b.name))
+              break;
+            case "Z-A":
+                sortedItems.sort((a,b) => b.name.localeCompare(a.name))
+              break;
+            case "low-to-high":
+                sortedItems.sort((a,b)=> a.price - b.price)
+             break;
+            case "high-to-low":
+                sortedItems.sort((a,b) => b.price - a.price)
+             break;
+            default:
+             break;
+        }
+
+        setFilteredItems(sortedItems);
+        setCurrentPage(1)
+    };
+    
+    console.log(filterItems)
+    // Pagination logic
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div>
             {/* menu banner */}
@@ -39,7 +103,9 @@ const Menu = () => {
 
             {/* menu shop  */}
             <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
+                <div className='flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8'>
 
+                </div>
             </div>
         </div>
     )
