@@ -83,9 +83,9 @@ const Menu = () => {
         <div>
             {/* menu banner */}
             <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4 bg-gradient-to-r from-0% from-[#FAFAFA] to-[#FCFCFC] to-100%'>
-                <div className='py-48 flex flex-col items-center justify-center'>
+                <div className="py-48 flex flex-col items-center justify-center">
                     {/* content */}
-                    <div className='text-center px-4 space-y-7'>
+                    <div className=" text-center px-4 space-y-7">
                         <h2 className="md:text-5xl text-4xl font-bold md:leading-snug leading-snug">
                             For the Love of Delicious <span className="text-green">Food</span>
                         </h2>
@@ -104,9 +104,47 @@ const Menu = () => {
             {/* menu shop  */}
             <div className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
                 <div className='flex flex-col md:flex-row flex-wrap md:justify-between items-center space-y-3 mb-8'>
+                    {/* all category buttons */}
+                    <div className='flex flex-row justify-start md:items-center md:gap-8 gap-4  flex-wrap'>
+                        <button>
 
+                        </button>
+                        <button>
+                            
+                        </button>
+                        <button>
+                            
+                        </button>
+                        <button>
+                            
+                        </button>
+                        <button>
+                            
+                        </button>
+                        <button>
+                            
+                        </button>
+                    </div>
+
+                    {/* filter options */}
+                    <div className="flex justify-end mb-4 rounded-sm">
+
+                    </div>
+                </div>
+
+
+                {/* product card */}
+                <div className='grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4'>
+                    {
+                        filteredItems.map((item)=>(
+                            <Cards key={item._id} item={item}/>
+                        ))
+                    }
                 </div>
             </div>
+
+            
+            
         </div>
     )
 }
