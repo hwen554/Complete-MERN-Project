@@ -152,14 +152,28 @@ const Menu = () => {
                 {/* product card */}
                 <div className='grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4'>
                     {
-                        filteredItems.map((item)=>(
+                        currentItems.map((item)=>(
                             <Cards key={item._id} item={item}/>
                         ))
                     }
                 </div>
             </div>
 
-            
+            {/* Pagination */}
+            <div className='flex justify-center my-8 flex-wrap gap-2'>
+                {
+                    Array.from({length:Math.ceil(filteredItems.length/itemsPerPage)}).map((_,index)=>(
+                        <button
+                        key={index + 1}
+                        onClick={()=>paginate(index+1)}
+                            className={`mx-1 px-3 py-1 rounded-full ${currentPage === index + 1 ? "bg-green text-white" : "bg-gray-200"
+                                }`}
+                        >
+                            {index+1}
+                        </button>
+                    ))
+                }
+            </div>
             
         </div>
     )
