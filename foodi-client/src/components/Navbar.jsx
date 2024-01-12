@@ -103,7 +103,7 @@ const Navbar = () => {
                         </div>
                     </label>
                     {/*btn*/}
-                    <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser />Login</a>
+                    <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser />Login</button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                         <div className="modal-box">
                             <h3 className="font-bold text-lg">Hello!</h3>
