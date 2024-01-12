@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import logo from '/logo.png'
 import { BiPhoneCall } from 'react-icons/bi'
 import { FaRegUser } from "react-icons/fa";
+import Modal from './Modal';
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false)
     // handle scroll functions
