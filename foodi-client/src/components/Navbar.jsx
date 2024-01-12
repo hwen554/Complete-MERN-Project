@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import logo from '/logo.png'
 import { BiPhoneCall } from 'react-icons/bi'
+import { FaRegUser } from "react-icons/fa";
 const Navbar = () => {
     const [isSticky, setSticky] = useState(false)
     // handle scroll functions
@@ -102,7 +103,19 @@ const Navbar = () => {
                         </div>
                     </label>
                     {/*btn*/}
-                    <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><BiPhoneCall />Contact</a>
+                    <a className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser />Login</a>
+                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                        <div className="modal-box">
+                            <h3 className="font-bold text-lg">Hello!</h3>
+                            <p className="py-4">Press ESC key or click the button below to close</p>
+                            <div className="modal-action">
+                                <form method="dialog">
+                                    {/* if there is a button in form, it will close the modal */}
+                                    <button className="btn">Close</button>
+                                </form>
+                            </div>
+                        </div>
+                    </dialog>
                 </div>
             </div>
         </header>
