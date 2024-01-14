@@ -2,6 +2,7 @@ import React from 'react'
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import Modal from "./Modal";
 const Signup = () => {
   
     const {
@@ -83,8 +84,14 @@ const Signup = () => {
 
                   <p className='text-center my-2'>
                         Have an account? 
-                        <button className='underline text-red'>Login</button>
+                        <button className='underline text-red ml-1'
+                                onClick={()=>document.getElementById('my_modal_5').showModal()}
+                        >Login</button>
                   </p>
+
+                  <Link  to="/" className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>
+                      X
+                  </Link>
               </form>
 
 
@@ -104,6 +111,7 @@ const Signup = () => {
                   </button>
               </div>
           </div>
+          <Modal/>
       </div>
   )
 }

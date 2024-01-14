@@ -79,13 +79,17 @@ const Modal = () => {
 
                           {/*error*/}
 
-                          
+
                           {/* login btn */}
                           <div className="form-control mt-6">
                               <input type='submit' value="Login" className="btn bg-green text-white" />
                           </div>
 
-                          <p className='text-center my-2'>Donot have an account? <Link to='/signup' className='underline text-red'>Signup Now</Link></p>
+                          <p className='text-center my-2'>Donot have an account? <Link to='/signup' className='underline text-red ml-1'>Signup Now</Link></p>
+
+                          <button htmlFor="my_modal_5" onClick={()=>document.getElementById('my_modal_5').close()} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>
+                            X
+                          </button>
                       </form>
                       
 
