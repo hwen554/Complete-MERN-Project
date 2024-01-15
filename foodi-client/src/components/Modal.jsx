@@ -70,7 +70,7 @@ const Modal = () => {
                                     placeholder="password" 
                                     className="input input-bordered" 
                                     required
-                                    {...register("password")} 
+                                    {...register("password", { required: true })}
                                 />
                               <label className="label">
                                   <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -86,7 +86,7 @@ const Modal = () => {
                           </div>
 
                           <p className='text-center my-2'>Donot have an account? <Link to='/signup' className='underline text-red ml-1'>Signup Now</Link></p>
-
+                          
                           <button htmlFor="my_modal_5" onClick={()=>document.getElementById('my_modal_5').close()} className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>
                             X
                           </button>
