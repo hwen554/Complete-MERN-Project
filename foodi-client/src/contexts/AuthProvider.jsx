@@ -43,13 +43,19 @@ const AuthProvider = ({children}) => {
 
     //update profile
     const updateuserProfile=({name,photoURL})=>{
-        updateProfile(auth.currentUser,{
-            displayName:"Jane Q. User", photoURL:"https://i.stack.imgur.com/4Bl5y.jpg"
+        return updateProfile(auth.currentUser,{
+            displayName:name, photoURL:photoURL
         })
     }
+    
+    
     const authInfo = {
         user,
-        createUser
+        createUser,
+        signUpWithGmail,
+        login,
+        logOut,
+        updateuserProfile
     }
     
     
