@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { AuthContext } from '../contexts/AuthProvider';
 
 
 const Modal = () => {
@@ -12,6 +13,16 @@ const Modal = () => {
     handleSubmit, reset,
     formState: { errors },
   } = useForm();
+
+  const {signUpWithGmail} = useContext(AuthContext)
+
+  //gooogle login
+  const handleLogin =()=>{
+        signUpWithGmail().then((result)=>{
+            const user = result.user;
+            alert("Login successfully")
+        }).catch((error)=>console.log(error))
+  }
 
 
   const onSubmit = (data) =>{
@@ -96,7 +107,7 @@ const Modal = () => {
                       {/*social sign in */}
                       <div className='text-center space-x-3 mb-5'>
                           <button
-                              onClick={handleRegister}
+                              onClick={handleLogin}
                               className="btn btn-circle hover:bg-green hover:text-white"
                           >
                               <FaGoogle />
