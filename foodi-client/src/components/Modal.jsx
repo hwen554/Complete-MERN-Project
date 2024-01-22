@@ -39,6 +39,7 @@ const Modal = () => {
         setErrorMessage("Provide a correct email and password! ")
     })
   }
+
   // login with google
   const handleRegister = () => {
     signUpWithGmail()
@@ -101,13 +102,13 @@ const Modal = () => {
 
                           {/*error*/}
                           
-                          {/* {errorMessage ? (
+                          {errorMessage ? (
                               <p className="text-red text-xs italic">
                                   {setErrorMessage}
                               </p>
                           ) : (
                               ""
-                          )} */}
+                          )}
 
                           {/* login btn */}
                           <div className="form-control mt-6">
