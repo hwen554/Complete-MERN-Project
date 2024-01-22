@@ -1,5 +1,5 @@
 import React,{createContext,useState,useEffect } from 'react'
-import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
+import {GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 // import axios from 'axios';
 import app from '../firebase/firebase.config'
 import { FaPassport } from 'react-icons/fa';
@@ -48,7 +48,22 @@ const AuthProvider = ({children}) => {
         })
     }
     
-    
+    // check signed-in user
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setUser(currentUser);
+                setLoading(false)
+
+            } else {
+
+            }
+        })
+        return ()=>{
+            unsubscribe();
+        }
+    }, [])
     const authInfo = {
         user,
         createUser,
