@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
@@ -14,7 +14,8 @@ const Modal = () => {
     formState: { errors },
   } = useForm();
 
-  const {signUpWithGmail} = useContext(AuthContext)
+  const {signUpWithGmail,login} = useContext(AuthContext);
+  const [errorMessage,setErrorMessage] = useState("")
 
   //gooogle login
   const handleLogin =()=>{
@@ -26,7 +27,17 @@ const Modal = () => {
 
 
   const onSubmit = (data) =>{
-    console.log(data)
+    // console.log(data)
+    const email = data.email;
+    const password = data.password;
+    // console.log(email,password)
+    login(email,password).then((result)=>{
+        const user = result.user;
+        alert("Login successfully")
+    }).catch((error)=>{
+        const errorMessage = error.message;
+        setErrorMessage("Provide a correct email and password! ")
+    })
   }
   // login with google
   const handleRegister = () => {
@@ -54,7 +65,7 @@ const Modal = () => {
           >
               <div className="modal-box">
                   <div className="modal-action flex flex-col justify-center mt-0">
-                      <form className="card-body" method='dialog'>
+                      <form className="card-body" method='dialog' onSubmit={handleSubmit(onSubmit)}>
                           <h3 className='fond-bold text-lg'>Please Login</h3>
 
                           {/* email */}
@@ -89,7 +100,14 @@ const Modal = () => {
                           </div>
 
                           {/*error*/}
-
+                          
+                          {/* {errorMessage ? (
+                              <p className="text-red text-xs italic">
+                                  {setErrorMessage}
+                              </p>
+                          ) : (
+                              ""
+                          )} */}
 
                           {/* login btn */}
                           <div className="form-control mt-6">
