@@ -40,6 +40,7 @@ const Modal = () => {
     })
   }
 
+  
   // login with google
   const handleRegister = () => {
     signUpWithGmail()
