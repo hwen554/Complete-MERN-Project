@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link, useLocation, useNavigate} from "react-router-dom"
 import { FaFacebookF, FaGithub, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Modal from "./Modal";
+import { AuthContext } from '../contexts/AuthProvider';
 const Signup = () => {
   
     const {
@@ -11,10 +12,13 @@ const Signup = () => {
         formState: { errors },
       } = useForm();
     
-    
-      const onSubmit = (data) =>{
-        console.log(data)
-      }
+    const [createUser,login] = useContext(AuthContext)
+
+
+    const onSubmit = (data) => {
+        const email = data.email;
+        const password = data.password;
+    }
       // login with google
       const handleRegister = () => {
         signUpWithGmail()
