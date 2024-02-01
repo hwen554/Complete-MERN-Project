@@ -12,7 +12,7 @@ const Signup = () => {
         formState: { errors },
       } = useForm();
     
-    const [createUser,login] = useContext(AuthContext)
+    const {createUser,login} = useContext(AuthContext)
 
 
     const onSubmit = (data) => {
@@ -20,7 +20,7 @@ const Signup = () => {
         const password = data.password;
         createUser(email,password).then((result) => {
             const user = result.user;
-            alert("Signin successfully!")
+            alert("Account creation successfully done!")
         })
         .catch((error) => {
             const errorCode = error.code;
