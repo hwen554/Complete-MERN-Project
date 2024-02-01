@@ -18,6 +18,14 @@ const Signup = () => {
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
+        createUser(email,password).then((result) => {
+            const user = result.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode,"",errorMessage)
+        })
     }
       // login with google
       const handleRegister = () => {
@@ -41,7 +49,7 @@ const Signup = () => {
   return (
       <div className='max-w-md bg-white shadow w-full mx-auto flex items-center justify-center my-20'>
           <div className="modal-action flex flex-col justify-center mt-0">
-              <form className="card-body" method='dialog'>
+              <form onSubmit={handleSubmit(onSubmit)}  className="card-body" method='dialog'>
                   <h3 className='fond-bold text-lg'>Create An Account</h3>
 
                   {/* email */}
