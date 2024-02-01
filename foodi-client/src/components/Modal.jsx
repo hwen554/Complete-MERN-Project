@@ -15,13 +15,19 @@ const Modal = () => {
   } = useForm();
 
   const {signUpWithGmail,login} = useContext(AuthContext);
-  const [errorMessage,setErrorMessage] = useState("")
+  const [errorMessage,setErrorMessage] = useState("");
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   //gooogle login
   const handleLogin =()=>{
         signUpWithGmail().then((result)=>{
             const user = result.user;
             alert("Login successfully")
+            navigate
         }).catch((error)=>console.log(error))
   }
 
@@ -33,7 +39,9 @@ const Modal = () => {
     // console.log(email,password)
     login(email,password).then((result)=>{
         const user = result.user;
-        alert("Login successfully")
+        alert("Login successfully");
+        document.getElementById('my_modal_5').close()
+        navigate(from,{replace:true})
     }).catch((error)=>{
         const errorMessage = error.message;
         setErrorMessage("Provide a correct email and password! ")
@@ -105,7 +113,7 @@ const Modal = () => {
                           
                           {errorMessage ? (
                               <p className="text-red text-xs italic">
-                                  {setErrorMessage}
+                                  {errorMessage}
                               </p>
                           ) : (
                               ""
