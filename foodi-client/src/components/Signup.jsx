@@ -20,7 +20,7 @@ const Signup = () => {
         const password = data.password;
         createUser(email,password).then((result) => {
             const user = result.user;
-            alert("signin successfully!")
+            alert("Signin successfully!")
         })
         .catch((error) => {
             const errorCode = error.code;
