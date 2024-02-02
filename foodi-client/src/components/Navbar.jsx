@@ -109,7 +109,11 @@ const Navbar = () => {
                         </div>
                     </label>
                     {/*btn*/}
-                    <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser />Login</button>
+
+                    {
+                        user? <><p>Logout</p></> : <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-green rounded-full px-6 text-white flex items-center gap-2"><FaRegUser />Login</button>
+                    }
+
                     <Modal/>
                 </div>
             </div>
