@@ -8,12 +8,14 @@ const Main = () => {
 
   const {loading} = useContext(AuthContext);
   return (
-    <div>
-      <Navbar />
-      <div className='min-h-screen'>
-        <Outlet />
-      </div>
-      <Footer />
+    <div className='bg-primaryBG'>
+      {
+        loading ? <p>Loading.....</p> : <div>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </div>
+      }
     </div>
   )
 }
