@@ -10,11 +10,11 @@ const Main = () => {
   return (
     <div className='bg-primaryBG'>
       {
-        loading ? <p>Loading.....</p> : <div>
+        loading ? (<p>Loading.....</p>) : (<div>
           <Navbar />
           <Outlet />
           <Footer />
-        </div>
+        </div>)
       }
     </div>
   )
